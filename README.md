@@ -15,3 +15,16 @@ Let's take a real-life example, Travelling internationally with electronic devic
 ## Scenario (Code Implementation)
 
 We have a product display service that can be display product from two different sources one using file and another by calling the vendor API
+
+So, for the above scenario, we are going to create an IProductSourceAdapter Interface which has Task<IEnumerable<Product>> GetProducts(); So, the client will use this method to get the list of products.
+
+Also, we are going to implement two different classes. One class for file FileSource which get the product from a file using GetProductFromFile method and another for API VendorApiSourcewhich get products by calling Vendor API under GetProducts method
+
+Now, we are going to implement FileSourceAdapter which create an instance of ​​FileSource and delegate the call to FileSource.GetProductFromFile(_filePath)
+
+In the same way, we are going to implement VendorSourceAdapter which create an instance of VendorApiSourceand delegate the call to VendorApiSource.GetProducts(_clientApiUrl)
+
+Now, here our client ProductDisplayService inject IProductSourceAdapterwe don't care about which particular implementation it is. we will get this information based on the type that gets injected.
+
+## Diagram
+
