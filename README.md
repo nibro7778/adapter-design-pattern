@@ -28,3 +28,4 @@ Now, here our client ProductDisplayService inject IProductSourceAdapterwe don't 
 
 ## Diagram
 
+Pending
